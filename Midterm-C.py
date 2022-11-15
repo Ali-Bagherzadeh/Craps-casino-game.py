@@ -1,7 +1,7 @@
 # Ali-Bagherzadeh Midterm-MEM680
 #Fall 2022
 
-from random import randint
+from random import randint  # just neet to use randint
 import numpy as np
 import sys
 
@@ -25,8 +25,7 @@ class Dice:
         self.dice = np.zeros(2)   # to define dice with matrix
 
     def roll_dice(self):
-        self.dice[0] = randint(1, 6)  # Use random.randint() to simulate dice-rolling events dice number 1
-        self.dice[1] = randint(1, 6)  # Use random.randint() to simulate dice-rolling events dice number 2
+        self.dice=[randint(1, 6), randint(1,6)]  # Use random.randint() to simulate dice-rolling events dices
 
 
 class Table(Dice):                    # define class table while inheriting the dice
