@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81abe0e2-9383-4209-8845-554dfbc35ee6" name="Changes" comment="" />
+    <list default="true" id="81abe0e2-9383-4209-8845-554dfbc35ee6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Midterm-C.py" beforeDir="false" afterPath="$PROJECT_DIR$/Midterm-C.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,6 +72,12 @@
       <workItem from="1668383769739" duration="8000" />
       <workItem from="1668487334055" duration="887000" />
       <workItem from="1668489079594" duration="800000" />
+      <workItem from="1668490795942" duration="283000" />
+      <workItem from="1668491173792" duration="525000" />
+      <workItem from="1668491710141" duration="2669000" />
+      <workItem from="1668494518318" duration="16000" />
+      <workItem from="1668532254514" duration="65000" />
+      <workItem from="1668541476951" duration="396000" />
     </task>
     <servers />
   </component>

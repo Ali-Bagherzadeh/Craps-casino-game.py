@@ -1,4 +1,5 @@
 # Ali-Bagherzadeh Midterm-MEM680
+#Fall 2022
 
 from random import randint
 import numpy as np
@@ -28,59 +29,60 @@ class Dice:
         self.dice[1] = randint(1, 6)  # Use random.randint() to simulate dice-rolling events dice number 2
 
 
-class Table(Dice):
+class Table(Dice):                    # define class table while inheriting the dice
     def __init__(self):
         super().__init__()
-        self.point = False
+        self.point = False            # to determine the point is set or not
 
 
-class player(Table):
+class player(Table):                  # define class for player
     def __init__(self):
         super().__init__()
         self.player_name = input("Please type your name: ")
-        print(f"all the best, dear {self.player_name}!")
+        print(f"all the best, dear {self.player_name}!")        # saving player name and welcome!
 
         @converter
         def bankroller():
-            return input("type money amount you want in your bankroll: ")
+            return input("type money amount you want in your bankroll: ")  # to ask player money on the table
 
         self.bankroll = bankroller
-        self.initial_bankroll = np.copy(bankroller)
+        self.initial_bankroll = np.copy(bankroller)             # initial player money amount
 
 
 class bets(player):
     def __init__(self):
         super().__init__()
-        self.pass_line_bet = 0
+        self.pass_line_bet = 0        # define class bets which are not given by input!
         self.do_not_pass_bet = 0
-        self.odds_bet = 0
         self.max_odds_bet = 0
+        self.odds_bet = 0
+
 
     def betting_turn(self):
-        if input("Do you Want to place any bets? (please type y or n) ") == ("y" or "Y"):
+        if input("Do you Want to place any bets? (please type y or n) ") == ("y" or "Y"):       # asking player bet amount and position
             self.current_bet = input("you want to bet on pass line or do not pass line? ")
             if self.current_bet.lower() == ("pass line"):
-                self.bet_amount = self.ingest_bet()
-                self.pass_line()
+                self.bet_amount = self.ingest_bet()         # call ingest_ bet function to ask bet amount
+                self.pass_line()                            # call pass_line function after having bet amount to check
 
             elif self.current_bet.lower() == ("do not pass line"):
-                self.bet_amount = self.ingest_bet()
-                self.do_not_pass()
+                self.bet_amount = self.ingest_bet()         # call ingest_ bet function to ask bet amount
+                self.do_not_pass()                          # call do_not_pass function after having bet amount to check
             else:
                 print(
-                    "you placed an invalid bet type, please place one of the implemented  bets"
+                    "you placed an invalid bet type, please place one of the implemented  bets"  # avoid player typo!
                 )
                 print("the 'pass line' and 'do not pass line'  are implemented")
                 self.betting_turn()
         else:
-            print("bye! You currently have no active bets!")
+            print("bye! You currently have no active bets!")     # exit when player do not place bet!
             sys.exit()
 
-        self._print_bet_made()
+        self._print_bet_made()                             # call function to clear bet amount and position for player
         self.Shooter()
 
     def pass_line(self):
-        if self.bankroll >= self.bet_amount:
+        if self.bankroll >= self.bet_amount:               # check bankroll-amount
             if self.point == False:
                 self.pass_line_bet = self.bet_amount
                 self.bankroll -= self.bet_amount
@@ -119,9 +121,8 @@ class bets(player):
 
                 self.ingest_bet()
 
-            # Exception if the value is 0, a more elegant way would be with FF
 
-            if self.bet_amount == 0 and not self.point:
+            if self.bet_amount == 0 and not self.point:      # Exception if the value is 0 !
                 print("you cannot play with a bet of $ 0!")
 
                 # Resets the win condition
@@ -147,7 +148,7 @@ class bets(player):
             f"your bet on the {self.losing_bet} for ${self.losing_bet_amount} lost! \n your remaining is ${self.bankroll}"
         )
 
-    # Rolls the dice
+    # Rolls the dice by shooter command
     def Shooter(self):
         if self.pass_line_bet == 0 and self.do_not_pass_bet == 0:
             print("you have no active bets, you cannot roll")
@@ -185,12 +186,12 @@ class bets(player):
                 f"you placed a ${self.odds_bet} odds bet, Good Luck!, your bankroll is ${self.bankroll}"
             )
 
-    # payout
+    # payout function
     def Payout(self):
         if self.point == False:
 
             if np.sum(self.dice) in [7, 11]:
-                # Pass Line Winner
+                # Pass Line Winner when sum dice is 7, 11
                 self.Bet_winner("Pass Line", self.pass_line_bet)
 
                 # Do Not Pass Line Loser
@@ -229,8 +230,8 @@ class bets(player):
 
             if np.sum(self.dice) == self.point:
 
-                # odds Bet Winner
-                self._winning_bet_amount = self.pass_line_bet
+
+                self._winning_bet_amount = self.pass_line_bet  # odds Bet Winner
 
                 if self.point in [4, 10]:
                     self._winning_bet_amount += self.odds_bet * 2
@@ -273,17 +274,19 @@ class bets(player):
             else:
                 walk = input(
                     f"You currently have no active bets, Would you like to walk away with {self.bankroll} or play "
-                    f"more (y/n)? "
+                    f"more, please type 'y' or 'n'? "
                 )
                 if walk in ("y", "Y"):
                     if self.bankroll > self.initial_bankroll:
                         print(
                             f"you walked away winning ${self.bankroll - self.initial_bankroll}"
                         )
+                        sys.exit()
                     else:
                         print(
                             f"You walked away losing ${self.initial_bankroll - self.bankroll}"
                         )
+                        sys.exit()
                 else:
                     self.betting_turn()
         else:
