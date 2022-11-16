@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81abe0e2-9383-4209-8845-554dfbc35ee6" name="Changes" comment="test">
+    <list default="true" id="81abe0e2-9383-4209-8845-554dfbc35ee6" name="Changes" comment="test1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Midterm-C.py" beforeDir="false" afterPath="$PROJECT_DIR$/Midterm-C.py" afterDir="false" />
     </list>
@@ -78,7 +78,8 @@
       <workItem from="1668494518318" duration="16000" />
       <workItem from="1668532254514" duration="65000" />
       <workItem from="1668541476951" duration="396000" />
-      <workItem from="1668541987095" duration="1945000" />
+      <workItem from="1668541987095" duration="3300000" />
+      <workItem from="1668555214296" duration="2363000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1668542026343</created>
@@ -87,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668542026343</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="test1">
+      <created>1668544182721</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1668544182721</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,7 +114,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="test1" />
+    <option name="LAST_COMMIT_MESSAGE" value="test1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
