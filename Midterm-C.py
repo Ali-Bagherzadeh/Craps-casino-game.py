@@ -109,51 +109,50 @@ class bets(player):
     def ingest_bet(self):
         # This trys to see if the bet_amount is a valid int or can be converted into an int,
         try:
-            bet_amount = input("How much do you want to bet?")
-            self.bet_amount = int(bet_amount)
+            bet_amount = input("How much do you want to bet?") # to have the bet amount of player
+            self.bet_amount = int(bet_amount)                  # put input in function bet_amount
 
-            if self.bet_amount > self.bankroll:
+            if self.bet_amount > self.bankroll:              #bet amount should not be more than bankroll amount!
                 print(
                     f" ${self.bet_amount} is more than the maximum you can bet,please try again!! "
                 )
-                self.bet_amount = 0
+                self.bet_amount = 0    # bet amount define zero and ask again to get correct amount
 
-                self.ingest_bet()
+                self.ingest_bet()      # back to asking bet amount
 
 
-            if self.bet_amount == 0 and not self.point:      # Exception if the value is 0 !
+            if self.bet_amount == 0 and not self.point:      # Erorr if the value is 0 !
                 print("you cannot play with a bet of $ 0!")
 
-                # Resets the win condition
-                self.bet_amount = 0
+
+                self.bet_amount = 0    # # bet amount define zero and reset win condition
         except:
             print("please type an integer for the bet amount!, please try again!")
             # resets the win condition
             self.ingest_bet()
         return self.bet_amount
 
-    def _print_bet_made(self):
+    def _print_bet_made(self):   # to clear the bet amount and position for player
         print(
             f"you placed a bet on the {self.current_bet} for ${self.bet_amount} \n your remaining is ${self.initial_bankroll - self.bet_amount} "
         )
 
-    def _print_bet_won(self):
+    def _print_bet_won(self):     # if the player win
         print(
             f"your bet on the {self._winning_bet} for ${self.bet_amount} won! \n your remaining is ${self.bankroll}"
         )
 
-    def _print_bet_lost(self):
+    def _print_bet_lost(self):   # if the player loos
         print(
             f"your bet on the {self.losing_bet} for ${self.losing_bet_amount} lost! \n your remaining is ${self.bankroll}"
         )
 
-    # Rolls the dice by shooter command
-    def Shooter(self):
-        if self.pass_line_bet == 0 and self.do_not_pass_bet == 0:
+    def Shooter(self):   #Rolls the dice by shooter command
+        if self.pass_line_bet == 0 and self.do_not_pass_bet == 0:  # check the bet amounts!
             print("you have no active bets, you cannot roll")
         else:
-            self.roll_dice()
-            self.Payout()
+            self.roll_dice()    # get the sum of dices
+            self.Payout()       # goes to payout to check the winning or losing conditions
 
     def Bet_loser(self, bet_name, bet_amount):
         if bet_amount > 0:
