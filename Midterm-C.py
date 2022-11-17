@@ -86,24 +86,24 @@ class bets(player):
                 self.pass_line_bet = self.bet_amount
                 self.bankroll -= self.bet_amount            # Update bankroll amount considering of pass-line bet amount
             else:
-                print("you cannot bet the pass-line once the point is set!")
+                print("you cannot bet the pass-line  when there is set point!") # after having set-point cant bet again
         else:
             self.insufficient_funds(self.bet_amount, "pass line") # calling insufficient fun. when bankroll amount is not enough
 
     def do_not_pass(self):
-        if self.bankroll >= self.bet_amount:
+        if self.bankroll >= self.bet_amount:              # bankroll amount should be more than bet amount
             if self.point == False:
-                self.pass_line_bet = self.bet_amount
-                self.bankroll -= self.bet_amount
+                self.do_not_pass_bet = self.bet_amount    # set the bet
+                self.bankroll -= self.bet_amount          # set bankroll remaining
             else:
-                print("you cannot bet the pass line once the point is set!")
+                print("you cannot bet the do not pass line when there is set point!")  #after having set-point cant bet again
 
         else:
-            self.insufficient_funds(self.bet_amount, "pass line")
+            self.insufficient_funds(self.bet_amount, "pass line") # for make erorr when bankroll is not enough
 
     def insufficient_funds(self, bet, bet_position):
         print(
-            f"{self.player_name} you have insufficient funds to place a ${bet} on the {bet_position}"
+            f"{self.player_name} you have insufficient funds to place a ${bet} on the {bet_position}" # when bankroll is not enough
         )
         
     def ingest_bet(self):
