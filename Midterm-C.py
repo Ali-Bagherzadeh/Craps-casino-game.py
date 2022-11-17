@@ -296,7 +296,7 @@ class bets(player):
                 self.Shooter()
 
 
-# stat the game
+# start the game
 a = input("TO START THE GAME TYPE 'yes' and TO QUIT TYPE 'no'\n")
 if a.lower() == "no":
     sys.exit()
