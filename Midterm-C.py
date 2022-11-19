@@ -154,14 +154,14 @@ class bets(player):
             self.roll_dice()    # get the sum of dices
             self.Payout()       # goes to payout to check the winning or losing conditions
 
-    def Bet_loser(self, bet_name, bet_amount):
+    def Bet_loser(self, bet_name, bet_amount):  # define function for losing condition
         if bet_amount > 0:
             self.losing_bet = bet_name
             self.losing_bet_amount = bet_amount
             self._print_bet_lost()
         return 0
 
-    def Bet_winner(self, bet_name, bet_amount):
+    def Bet_winner(self, bet_name, bet_amount): # define function for winning condition
         if bet_amount > 0:
             self._winning_bet = bet_name
             self._winning_bet_amount = bet_amount
@@ -172,13 +172,13 @@ class bets(player):
                 self.point = False
             self._print_bet_won()
 
-    def odds(self):
+    def odds(self):           # odds bet amount
         if self.pass_line_bet > 0:
-            max_bet = np.min([self.bankroll, self.max_odds_bet])
+            max_bet = np.min([self.bankroll, self.max_odds_bet]) # odd bet hase max limit but should be less than bankroll amount
             print(
                 f"You can place a maximum odds bet of up to ${max_bet}, your current bankroll is ${self.bankroll}"
             )
-            self.odds_bet = self.ingest_bet()
+            self.odds_bet = self.ingest_bet()  # go to getting amount from input
             self.bankroll -= self.odds_bet
             print(
                 f"you placed a ${self.odds_bet} odds bet, Good Luck!, your bankroll is ${self.bankroll}"
@@ -210,7 +210,7 @@ class bets(player):
                 self.point = np.sum(self.dice)
                 print(f"A point of {self.point} has been set!")
 
-                if np.sum(self.dice) in [4, 10]:
+                if np.sum(self.dice) in [4, 10]:                 # odd bet max limit
                     self.max_odds_bet = self.pass_line_bet * 3
                 elif np.sum(self.dice) in [5, 9]:
                     self.max_odds_bet = self.pass_line_bet * 4
