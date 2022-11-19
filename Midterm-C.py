@@ -58,13 +58,13 @@ class bets(player):
 
 
     def betting_turn(self):
-        if input("Do you Want to place any bets? (please type y or n) ") == ("y" or "Y"):       # asking player bet amount and position
+        if input("Do you Want to place any bets? (please type y or n) ") == "y":       # asking player bet amount and position
             self.current_bet = input("you want to bet on pass line or do not pass line? ")
-            if self.current_bet.lower() == ("pass line"):
+            if self.current_bet.lower() == "pass line":
                 self.bet_amount = self.ingest_bet()         # call ingest_ bet function to ask bet amount
                 self.pass_line()                            # call pass_line function after having bet amount to check
 
-            elif self.current_bet.lower() == ("do not pass line"):
+            elif self.current_bet.lower() == "do not pass line":
                 self.bet_amount = self.ingest_bet()         # call ingest_ bet function to ask bet amount
                 self.do_not_pass()                          # call do_not_pass function after having bet amount to check
             else:
@@ -74,10 +74,14 @@ class bets(player):
                 print("the 'pass line' and 'do not pass line'  are implemented")
                 self.betting_turn()
         else:
-            print("bye! You currently have no active bets!")     # exit when player do not place bet!
-            sys.exit()
+            if input("Do you Want to place any bets? (please type y or n) ") == "n":
+                print("bye! You currently have no active bets!")     # exit when player do not place bet!
+                sys.exit()
+            else:
+                print("please just type lowercase 'y' or 'n'")
+                self.betting_turn()
 
-        self._print_bet_made()                             # call function to clear bet amount and position for player
+        self._print_bet_made()         # call function to clear bet amount and position for player
         self.Shooter()
 
     def pass_line(self):
